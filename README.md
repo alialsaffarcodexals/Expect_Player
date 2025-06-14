@@ -23,3 +23,12 @@ To run the unit tests:
 ```bash
 python -m pytest -q
 ```
+
+### Graphical Interface
+
+An optional GUI version is available. It requires `tkinter` and `Pillow`.
+Launch it with:
+
+```bash
+python -m expect_player.gui
+```

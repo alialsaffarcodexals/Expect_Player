@@ -4,11 +4,13 @@ from typing import List, Dict
 
 
 def unique_values(players: List[Dict], attr: str) -> List[str]:
-    """Return a list of unique values for the given attribute."""
+    """Return unique attribute values preserving dataset order."""
+    seen = set()
     values = []
     for player in players:
         value = player.get(attr)
-        if value not in values:
+        if value not in seen:
+            seen.add(value)
             values.append(value)
     return values
 
@@ -17,7 +19,9 @@ class Game:
     """Interactive guessing game."""
 
     def __init__(self, players: List[Dict]):
+        """Initialize game with a list of player dictionaries."""
         self.possible_players = players[:]
+        # ask questions about these attributes
         self.attributes = ["nationality", "club", "position"]
 
     def ask(self, attr: str, value: str) -> bool:
@@ -29,7 +33,7 @@ class Game:
             print("Please answer with 'y' or 'n'.")
 
     def filter_players(self, attr: str, value: str, keep: bool) -> None:
-        """Filter players based on the user's answer."""
+        """Filter ``possible_players`` according to the user's answer."""
         if keep:
             self.possible_players = [p for p in self.possible_players if p.get(attr) == value]
         else:
