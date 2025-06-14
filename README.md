@@ -5,3 +5,21 @@ so we want to create who is your player everypalyer will pick a football player 
 create an a program that can help is apply this game
 think hard and try your best
 it should be accepatable desing
+
+## Usage
+
+The project includes a small dataset of sample football players. Run the game
+with:
+
+```bash
+python -m expect_player.cli
+```
+
+Answer the yes/no questions until the program guesses your player. Images are
+referenced via online URLs as required.
+
+To run the unit tests:
+
+```bash
+python -m pytest -q
+```
